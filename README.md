@@ -24,5 +24,20 @@ Triggers:
       - Raises an error and rolls back the transaction if the customer has any books not returned.
       - Performs the delete operation on the "Customer" table if all associated books are returned.
 
+3.SalaryHistoryTrigger (AFTER UPDATE Trigger on Staff Table):
+- Description: Fired after an UPDATE operation on the "Staff" table.
+- Functionality:
+  - Tracks the salary history for staff members.
+  - Inserts the staff information, along with the old and new salaries, into the "SalaryHistory" table.
+  - Determines the type of modification (Raise or Cut) based on whether the new salary is greater than the old salary.
+  - Records the date and time of the modification.
+
+4.DeleteStaffTrigger (AFTER DELETE Trigger on Staff Table):
+- Description: Fired after a DELETE operation on the "Staff" table.
+- Functionality:
+  - Tracks the deletions of staff members and saves their information in the "ExStaff" table.
+  - Records the staff information, including the staff ID, name, date of birth, phone number, and finish date (date of deletion).
+  - Allows for historical tracking of deleted staff members.
+
 
 
