@@ -39,5 +39,13 @@ Triggers:
   - Records the staff information, including the staff ID, name, date of birth, phone number, and finish date (date of deletion).
   - Allows for historical tracking of deleted staff members.
 
+5.EncryptFeedbackTextTrigger (AFTER INSERT Trigger on Feedback Table):
+-Description: Fired after an INSERT operation on the "Feedback" table.
+-Functionality:
+   -Opens the symmetric key SymKey for decryption using the password 'StrongPassword123'.
+   -Updates the feedback_text column in the Feedback table with the encrypted value of the inserted feedback_text using the symmetric key.
+   -Applies the encryption operation for each inserted row by joining the Feedback table with the inserted pseudo table on the ID.
+   -Closes the symmetric key SymKey after the encryption process.
+
 
 
